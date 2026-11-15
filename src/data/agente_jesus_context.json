@@ -1,0 +1,822 @@
+{
+  "api_key": "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",
+  "model_name": "meta/llama-3.1-70b-instruct",
+  "system_prompt": "Eres Jesús, un ingeniero experto en propulsión de cohetes, termodinámica y diagnóstico de bancos de pruebas. Tu tono es técnico, analítico, directo y formal. Ayudas a interpretar telemetría de ensayos de motores cohete, evalúas riesgos de seguridad y sugieres mejoras basadas en los ensayos proporcionados.",
+  "knowledge_base": {
+    "directrices_y_seguridad": [
+      "Si la presión de cámara supera lo indicado como máximo por el usuario bar, avisa de riesgo crítico, para ello es importante preguntar al principio si hay medidas de seguridad que implementar y comprobarlas si las actualiza.",
+      "Si se produce una subida en la presión de la cámara de combustión fuera de la inicial es debido a que se deposita escoria en la tobera, puede ser crítico al producirse un pico de presión, además de que es difícil saber con exactitud la cantidad de escoria que se va a depositar, por lo que "
+    ],
+   "conocimiento_y_ensayos": {
+    "instruccion_filtrado_ia": "ATENCIÓN OBLIGATORIA: A continuación tienes el listado completo del historial de ensayos. Cuando el usuario te aporte los datos de un ensayo nuevo, NO mezcles todos los datos. Primero lee los parámetros del motor actual (tipo de combustible, diámetro, geometría...) del simulador, luego busca en la lista de abajo los 2 o 3 ensayos que tengan las características más similares o idénticas a este motor, descartando el resto. Utiliza ÚNICAMENTE esos ensayos similares para comparar sus casos reales frente a sus simulados y explicar las desviaciones.",
+    
+   
+  "historial_ensayos": [
+    {
+      "id_ensayo": "ENSAYO_01",
+      "fecha": "15/11/2026",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 58.4,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 370,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 0,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 6 (AP+)",
+          "unidad_o_nota": "Aditivos AP"
+        },
+        "Grano D0 / d0 / L0": {
+          "valor": "58.4 / 25.0 / 90.0",
+          "unidad_o_nota": "mm"
+        },
+        "Segmentos Grano (N)": {
+          "valor": 4,
+          "unidad_o_nota": "Total Lg = 360 mm"
+        },
+        "Densidad Relativa (rho)": {
+          "valor": 0.962,
+          "unidad_o_nota": "96.2%"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 12.9,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 37.7,
+          "unidad_o_nota": "mm"
+        },
+        "Eficiencia Combustión (eta_c)": {
+          "valor": 0.95,
+          "unidad_o_nota": "95%"
+        },
+        "Eficiencia Tobera (eta_noz)": {
+          "valor": 0.85,
+          "unidad_o_nota": "85%"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 1274.4,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.94,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 56.08,
+          "unidad_o_nota": "kg/cm² (55.0 bar)"
+        },
+        "Velocidad Característica (c*)": {
+          "valor": 1510,
+          "unidad_o_nota": "m/s"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 97,
+          "unidad_o_nota": "kg"
+        },
+        "Empuje Medio Teórico": {
+          "valor": 88.24,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 2541.4,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 203.28,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 4.63,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 99.42,
+          "unidad_o_nota": "kg/cm² (97.5 bar)"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 127.2,
+          "unidad_o_nota": "kg"
+        },
+        "Empuje Medio Real (Emean)": {
+          "valor": 96.5,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 4379.5,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 372.6,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "Sobropresión +77.3% (97.5 bar). Cola de quemado prolongada.",
+        "detalle_adicional": "Revisar sensores"
+      }
+    },
+    {
+      "id_ensayo": "BEM73AC13",
+      "fecha": "09/08/2026",
+      "clase_motor": "L",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 60.7,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 520,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 7 (APCP)",
+          "unidad_o_nota": "APCP"
+        },
+        "Grano Seg 1 D0/d0/L0/N": {
+          "valor": "58.4 / 20.0 / 101.0 / N=5",
+          "unidad_o_nota": "mm"
+        },
+        "Grano Seg 2-7 D0/d0/L0/N": {
+          "valor": "56.0 / 25.0 / 60.0 / N=1",
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 15,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 38,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 1948.2,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 3.2,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 65.6,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 165.1,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 4659,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 240,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 3.69,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 65,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 166.49,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 5119.12,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 277.31,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Picos ajustados impecablemente (<1% error).",
+        "detalle_adicional": "Encendido Eléctrico 30ºC"
+      }
+    },
+    {
+      "id_ensayo": "BEM73AC13",
+      "fecha": "30/03/2026",
+      "clase_motor": "I",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 60.7,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 360,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 7 (APCP)",
+          "unidad_o_nota": "APCP"
+        },
+        "Grano Seg 1 D0/d0/L0/N": {
+          "valor": "58.4 / 25.0 / 69.03 / N=5",
+          "unidad_o_nota": "mm"
+        },
+        "Grano Seg 2-7 D0/d0/L0/N": {
+          "valor": "56.0 / 25.0 / 60.0 / N=1",
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 12.9,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 38,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 1244.9,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.45,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 97.2,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 114.8,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 2646,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 210,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 3.65,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 96.22,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 48.83,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 1987.71,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 180.32,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Presión bien estimativa. Caída de empuje real (-57.5%).",
+        "detalle_adicional": "Encendido Eléctrico 37ºC"
+      }
+    },
+    {
+      "id_ensayo": "BEM73AC13",
+      "fecha": "22/02/2026",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 62.71,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 360,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 2,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 2 (KNDX)",
+          "unidad_o_nota": "KNDX / KNSB"
+        },
+        "Granos Lg Total": {
+          "valor": 330.3,
+          "unidad_o_nota": "mm (5 segmentos)"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 13.16,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 38,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 1216.4,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.03,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 49,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 95.2,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 1480,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 124,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 2.34,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 49.44,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 90.31,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 1448.74,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 121.42,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Ajuste modelo-real óptimo (<2.5% error global).",
+        "detalle_adicional": "Encendido Eléctrico 16ºC"
+      }
+    },
+    {
+      "id_ensayo": "M40AC",
+      "fecha": "Sin fecha",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 44.9,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 215.5,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 2,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 1 (KNDX)",
+          "unidad_o_nota": "KNDX"
+        },
+        "Granos Lg Total": {
+          "valor": 184.3,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 9.5,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 24,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 395.58,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.05,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 25,
+          "unidad_o_nota": "kg/cm² (24.01 bar)"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 20.4,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 336,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 86.5,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 3.58,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 17.17,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 15.68,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 387.47,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 99.66,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Quemado real más lento (3.58s vs 2.05s).",
+        "detalle_adicional": "Encendido Eléctrico 30ºC"
+      }
+    },
+    {
+      "id_ensayo": "M60AC13",
+      "fecha": "23/07/2025",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 60.7,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 280,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 2,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 2 (KNDX)",
+          "unidad_o_nota": "KNDX"
+        },
+        "Granos Lg Total": {
+          "valor": 256.6,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 13,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 29.8,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 852.28,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.05,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 31.6,
+          "unidad_o_nota": "kg/cm² (30.57 bar)"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 56.2,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 986,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 117.9,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 2.02,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 22.79,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 145.62,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 962.7,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 112.79,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Pico de empuje medido muy elevado (145.6kg).",
+        "detalle_adicional": "Encendido Eléctrico 32ºC"
+      }
+    },
+    {
+      "id_ensayo": "M60AC13",
+      "fecha": "09/11/2025",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 60.7,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 178.5,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 2,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 2 (KNDX)",
+          "unidad_o_nota": "KNDX"
+        },
+        "Granos Lg Total": {
+          "valor": 169.9,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 13,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 29.8,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 566.54,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.01,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 20.9,
+          "unidad_o_nota": "kg/cm² (19.93 bar)"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 31.2,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 507,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 91.2,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 3,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 16.21,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 27.32,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 539.51,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 96.26,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Buen ajuste en impulsos integrados.",
+        "detalle_adicional": "Encendido Eléctrico 20ºC"
+      }
+    },
+    {
+      "id_ensayo": "M60AC13",
+      "fecha": "20/12/2025",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 60.7,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 276,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 2,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 2 (KNDX)",
+          "unidad_o_nota": "KNDX"
+        },
+        "Granos Lg Total": {
+          "valor": 252.2,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 12.55,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 29.8,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 841.54,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.05,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 33.6,
+          "unidad_o_nota": "kg/cm² (32.62 bar)"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 56.4,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 1018,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 118.3,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 2.19,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 34.52,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 64.43,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 1109.82,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 134.42,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Ajuste cercano en presión pico.",
+        "detalle_adicional": "Encendido Eléctrico 16ºC"
+      }
+    },
+    {
+      "id_ensayo": "M60AC13",
+      "fecha": "23/11/2025",
+      "inputs_motor": {
+        "Cámara Diámetro int (Dc)": {
+          "valor": 60.7,
+          "unidad_o_nota": "mm"
+        },
+        "Cámara Longitud (Lc)": {
+          "valor": 276,
+          "unidad_o_nota": "mm"
+        },
+        "Espesor Inhibición (einh)": {
+          "valor": 2,
+          "unidad_o_nota": "mm"
+        },
+        "Propulsor Tipo": {
+          "valor": "Type 2 (KNDX)",
+          "unidad_o_nota": "KNDX"
+        },
+        "Granos Lg Total": {
+          "valor": 256.6,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Garganta Dt0": {
+          "valor": 13,
+          "unidad_o_nota": "mm"
+        },
+        "Tobera Salida Ds": {
+          "valor": 29.8,
+          "unidad_o_nota": "mm"
+        }
+      },
+      "caso_simulado": {
+        "Masa Propulsor inicial (mgt0)": {
+          "valor": 877.53,
+          "unidad_o_nota": "g"
+        },
+        "Tiempo Combustión (tb)": {
+          "valor": 2.05,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima (P0max)": {
+          "valor": 32.5,
+          "unidad_o_nota": "kg/cm² (31.49 bar)"
+        },
+        "Empuje Máximo Teórico": {
+          "valor": 58,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Teórico": {
+          "valor": 1018,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Teórico": {
+          "valor": 118.3,
+          "unidad_o_nota": "s"
+        }
+      },
+      "caso_real": {
+        "Tiempo Combustión Real (tb)": {
+          "valor": 2.11,
+          "unidad_o_nota": "s"
+        },
+        "Presión Máxima Real (Pmax)": {
+          "valor": 43.52,
+          "unidad_o_nota": "kg/cm²"
+        },
+        "Empuje Máximo Real (Emax)": {
+          "valor": 70.35,
+          "unidad_o_nota": "kg"
+        },
+        "Impulso Total Real (It)": {
+          "valor": 996.68,
+          "unidad_o_nota": "N·s"
+        },
+        "Impulso Específico Real (Isp)": {
+          "valor": 115.82,
+          "unidad_o_nota": "s"
+        }
+      },
+      "notas_y_dictamen": {
+        "dictamen": "OK. Sobropresión moderada en banco (+33.9%).",
+        "detalle_adicional": "Encendido Eléctrico 16ºC"
+      }
+    }
+  ]
+}
+  }
+}
