@@ -1,0 +1,28 @@
+📂 Lista de Archivos del Agente Jesús
+/src/lib/agenteJesus.ts (Lógica y Servicio Core)
+Qué es: El cerebro de comunicación con la IA, persistencia en localStorage y manejo de telemetría.
+Qué ha cambiado:
+Gestión de activación permanente (hermes_agente_jesus_activated_v1) para que una vez activado no vuelva a pedirlo al reiniciar.
+Actualización de modelos NVIDIA NIM (evitando modelos retirados como meta/llama-3.1-70b-instruct que devuelven HTTP 410 y soporte para modelos activos como nvidia/nemotron-3.5-lightning-30b-a3b con desactivación de thinking tokens).
+Captura automática de todos los inputs (motor, nozzle, grains, customPropellants) y resultados (results, simApogee, expApogee) para enviarlos en cada turno al agente.
+Extractor de propuestas (extractInputProposalFromText) que detecta recomendaciones de configuración en el texto del agente y genera los botones para aplicarlas.
+/src/components/AgenteJesusPanel.tsx (Interfaz Gráfica del Panel)
+Qué es: El componente visual que contiene la pantalla de bienvenida/activación, la barra lateral de telemetría, el selector de modelos, el límite de presión de seguridad y el chat interactivo.
+Qué ha cambiado:
+Añadida la opción de quitar o restaurar la Ventana de Contexto fácilmente ("Meter JSON", "Quitar", "Restaurar").
+Eliminación de la barra de quick prompts y mantenimiento limpio de la tarjeta de Límite de Seguridad (Límite de Seguridad).
+Tarjetas interactivas de propuestas con los botones «Aplicar a Inputs y Simular» y «Solo aplicar inputs».
+Corrección del layout para que la interfaz completa permanezca estática en la pantalla (h-screen overflow-hidden) y solo se desplace internamente el contenedor de mensajes del chat (evitando que la página entera se alargue indefinidamente).
+/src/data/agente_jesus_context.json (Base de Conocimiento y Prompt del Sistema)
+Qué es: Archivo JSON estruturado convertido a partir del archivo de texto aportado por ti, que incluye las directrices de seguridad, el prompt del sistema y el historial de los 9 ensayos experimentales.
+/public/assets/aistudio/Ventana_contexto_7bb56bc2.txt (Archivo Fuente Original)
+Qué es: El archivo de texto original subido a AI Studio que sirvió de base para configurar el JSON del agente.
+/src/App.tsx (Integración Principal en HERMES)
+Qué es: Contenedor principal de la aplicación.
+Qué ha cambiado:
+Integración de la pestaña agente_jesus con sincronización de estado de activación y manejadores para aplicar configuraciones directamente al simulador balístico y recalcular al instante.
+Ajuste condicional del contenedor raíz (h-screen overflow-hidden cuando la pestaña activa es Agente Jesús).
+Archivos de Soporte y Métricas:
+/src/lib/telemetry.ts: Registro de eventos de uso de la IA.
+/src/lib/toursData.ts: Pasos de guía interactiva para el tour de Agente Jesús.
+/src/components/UsageAnalyticsModal.tsx: Contabilización de llamadas y uso del Agente Jesús en las estadísticas de la aplicación.
